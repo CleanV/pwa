@@ -3,7 +3,7 @@ import AppContext from "../common/context/AppContext";
 import Back from "../assets/svg/back.svg";
 
 function NavigationBar() {
-    const { showNavbar } = useContext(AppContext);
+    const { showNavbar, navbarButton } = useContext(AppContext);
 
     function back() {
         history.back();
@@ -18,6 +18,9 @@ function NavigationBar() {
                             <button onClick={back} className="flex items-center space-x-3 rtl:space-x-reverse">
                                 <img src={Back} width={20} />
                             </button>
+                            <div>
+                                {navbarButton}
+                            </div>
                         </div>
                     </nav>
             }

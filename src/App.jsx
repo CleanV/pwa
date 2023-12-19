@@ -1,32 +1,36 @@
-import { useRoutes } from "react-router-dom";
-import routes from "./route/route";
 import NavigationBar from "./component/NavigationBar";
 import AppContext from "./common/context/AppContext";
 import { useState } from "react";
 import BottomNavigation from "./component/BottomNavigation";
+import Content from "./component/Content";
+import LoaderOverlay from "./component/LoaderOverlay";
 
 function App() {
-  const routing = useRoutes(routes(localStorage.getItem('accessToken') && localStorage.getItem('refreshToken')));
   const [showNavbar, setShowNavbar] = useState(false);
+  const [navbarButton, setNavbarButton] = useState(<></>);
+  const [showLoading, setShowLoading] = useState(false);
   const [showBottomNavbar, setShowBottomNavbar] = useState(false);
 
   return (
       <>
         <AppContext.Provider
           value={{
+            navbarButton, 
+            setNavbarButton,
+            showLoading, 
+            setShowLoading,
             showNavbar,
             setShowNavbar,
             showBottomNavbar, 
             setShowBottomNavbar
           }}
         >
-          {<NavigationBar />}
+          { <LoaderOverlay /> }
+          { <NavigationBar /> }
 
-          <div className="p-3">
-            {routing}
-          </div>
+          {<Content />}
 
-          {<BottomNavigation />} 
+          { <BottomNavigation /> } 
         </AppContext.Provider>
       </>
   );

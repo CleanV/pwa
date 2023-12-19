@@ -19,3 +19,8 @@
 .color-primary {
     color: var(--primarycolor);
 }
+
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+}

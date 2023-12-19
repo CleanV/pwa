@@ -18,7 +18,7 @@ function VerifyPage() {
   }, []);
 
   return (
-    <>
+    <div className="p-3">
       <div>
         <center>
           <h3 className="mt-20 text-xl">Verify Account</h3>
@@ -39,7 +39,7 @@ function VerifyPage() {
           </div>
         </center>
       </div>
-    </>
+    </div>
   );
 }
 
